@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-resource-2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ashokit.org
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/java-web-app"
+        backend:
+         service:
+          name: javawebappsvc
+          port: 
+           number: 80
+      - pathType: Prefix
+        path: "/maven-web-app"
+        backend:
+         service:
+          name: mavenwebappsvc
+          port: 
+           number: 80
+...
